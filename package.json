@@ -1,0 +1,20 @@
+{
+  "name": "zentry-launchpad",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zentry client portal and launch-page factory",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "setup:admin": "npm run setup:admin -w backend",
+    "db:init": "npm run db:init -w backend",
+    "dev:api": "npm run dev -w backend",
+    "dev:web": "npm run dev -w frontend",
+    "build": "npm run build -w backend && npm run build -w frontend",
+    "start": "npm run start -w backend",
+    "test": "npm test -w backend"
+  },
+  "license": "MIT"
+}
