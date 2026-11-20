@@ -126,22 +126,28 @@ the app is directly exposed so `X-Forwarded-For` cannot spoof rate-limit keys.
 - Security headers (CSP, nosniff, frame/Permissions-Policy, HSTS over TLS) are set
   by Express. Generated pages use first-party inline script/style only.
 
-## Deploy (still $0)
+## Deploy (still $0, no card)
 
-1. **Frontend → GitHub Pages.** Build with `npm run build` for same-origin/Express
-   hosting, or, for the `jaredatandi/zentry-site` subdirectory, rebuild the
-   frontend with `npm run build -w frontend -- --base=/zentry-site/` (npm passes
-   the flag to Vite; if your npm version does not, run
-   `cd frontend && npx vite build --base=/zentry-site/`). Publish `frontend/dist`
-   to the `gh-pages` branch using a free GitHub Action or the existing repository.
-   Set `VITE_API_BASE_URL` at build time to your public backend URL if it is not
-   on the same origin. `frontend/public/404.html` handles deep links such as
-   `/holding-page`.
-2. **Backend → owner's machine.** Run `npm start` locally. For public access use a
-   free Cloudflare Tunnel (`cloudflared tunnel --url http://localhost:3001`) — no
-   card required. Put that URL in `VITE_API_BASE_URL` and rebuild the frontend.
-3. **Keep `.env` off the machine's shared folders and out of git.** Never commit
-   bank details, tokens or the SQLite file.
+The production stack is **Vercel Hobby (free) + Turso SQLite (free)**: the React
+site and the Express API share one `*.vercel.app` origin, and data lives in a
+remote SQLite database. Both providers offer a genuine no-card free tier and
+GitHub sign-in.
+
+1. Create a free Turso database: `turso db create zentry-launchpad`.
+2. Copy the schema in with
+   `turso db shell zentry-launchpad < backend/migrations/001_initial.sql`.
+3. Create a token: `turso db tokens create zentry-launchpad`.
+4. In Vercel, import `jaredatandi/zentry-launchpad` and add these Environment
+   Variables: `TURSO_DATABASE_URL`, `TURSO_AUTH_TOKEN`, `SESSION_SECRET`,
+   `ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH`, `COOKIE_SECURE=true`, `TRUST_PROXY=1`.
+   Generate the secret and bcrypt hash locally with `npm run setup:admin`, then
+   paste only their values into Vercel — never into git.
+5. Deploy. `vercel.json` builds both workspaces, serves `frontend/dist` and
+   routes `/api/*` and `/p/*` to the single serverless function in `api/index.js`.
+
+For local development, leave the Turso variables empty: `npm start` uses the
+gitignored SQLite file in `backend/data` and Vite proxies `/api` to port 3001.
+Never commit bank details, tokens, `.env` or the SQLite file.
 
 The pre-existing free assets remain reachable and are referenced by the new site:
 the [original site](https://jaredatandi.github.io/zentry-site/),

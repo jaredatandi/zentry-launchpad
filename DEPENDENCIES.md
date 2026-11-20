@@ -16,13 +16,16 @@ trial, card, subscription, ad platform or billed API key is used by this project
 | jose | MIT | Signed session JWT | Yes |
 | zod | MIT | Input validation | Yes |
 | dotenv | BSD-2-Clause | `.env` loading | Yes |
+| @libsql/client | MIT | Remote SQLite client (Turso) in production | Yes |
+| serverless-http | MIT | Runs the Express app on Vercel Functions | Yes |
 | Vitest | MIT | Tests | Yes |
 
 Deliberately **not** used: paid email APIs (the app uses mailto links and an
-in-app enquiry inbox), paid CAPTCHA (honeypot + rate limit instead), hosted
-databases, card processors, ads, or Vercel paid features. GitHub Pages, GitHub
-Actions and a free Cloudflare Tunnel are the only external services suggested,
-and all have free tiers that need no card for this use.
+in-app enquiry inbox), paid CAPTCHA (honeypot + rate limit instead), card
+processors, ads, or any paid hosting/database tier. The production host is
+Vercel Hobby plus a free Turso SQLite database; both have no-card free tiers and
+GitHub sign-in. GitHub Pages and a free Cloudflare Tunnel remain valid local/
+fallback options.
 
 **Dependencies I was unsure about:** none. The only one worth a second look on a
 new machine is `better-sqlite3`, because it contains a native addon: installation

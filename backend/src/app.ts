@@ -1,5 +1,5 @@
 import express, { type NextFunction, type Request, type Response } from "express";
-import type Database from "better-sqlite3";
+import type { AsyncDatabase } from "./db/types";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { config as defaultConfig, SESSION_COOKIE, type AppConfig } from "./config";
@@ -11,6 +11,7 @@ import {
   signSession,
   verifyPassword,
 } from "./auth";
+import { asyncRoute } from "./lib/asyncRoute";
 import { logActivity } from "./lib/activity";
 import { clientIp } from "./lib/clientIp";
 import { RateLimiter } from "./lib/rateLimit";
@@ -27,7 +28,7 @@ export interface AppOptions {
   frontendDist?: string;
 }
 
-export function createApp(db: Database.Database, options: AppOptions): express.Express {
+export function createApp(db: AsyncDatabase, options: AppOptions): express.Express {
   const app = express();
   const frontendDist = options.frontendDist ?? defaultConfig.frontendDist;
 
@@ -64,7 +65,7 @@ export function createApp(db: Database.Database, options: AppOptions): express.E
 
   const loginLimiter = new RateLimiter(5, 15 * 60 * 1000);
 
-  app.post("/api/admin/login", async (req, res) => {
+  app.post("/api/admin/login", asyncRoute(async (req, res) => {
     const attemptedEmail = typeof req.body?.email === "string" ? req.body.email.toLowerCase() : "";
     const limit = loginLimiter.check(`${clientIp(req)}:${attemptedEmail}`);
     if (!limit.allowed) {
@@ -85,15 +86,15 @@ export function createApp(db: Database.Database, options: AppOptions): express.E
     const emailMatches = parsed.data.email.toLowerCase() === options.adminEmail.toLowerCase();
     const passwordMatches = await verifyPassword(parsed.data.password, options.adminPasswordHash);
     if (!emailMatches || !passwordMatches) {
-      logActivity(db, "login_failed", "admin", "Failed owner sign-in attempt");
+      await logActivity(db, "login_failed", "admin", "Failed owner sign-in attempt");
       res.status(401).json({ error: "Incorrect email or password" });
       return;
     }
     const token = await signSession(options.adminEmail, options.sessionSecret);
     res.cookie(SESSION_COOKIE, token, sessionCookieOptions(options.cookieSecure));
-    logActivity(db, "login", "admin", "Owner signed in");
+    await logActivity(db, "login", "admin", "Owner signed in");
     res.json({ ok: true, email: options.adminEmail });
-  });
+  }));
 
   app.post("/api/admin/logout", (req, res) => {
     const token = parseCookies(req.headers.cookie)[SESSION_COOKIE];
@@ -109,8 +110,8 @@ export function createApp(db: Database.Database, options: AppOptions): express.E
   );
 
   // Public generated pages, served from the stored HTML (also exported to generated/).
-  app.get("/p/:slug", (req, res) => {
-    const row = db.prepare("SELECT html FROM pages WHERE slug = ?").get(req.params.slug) as
+  app.get("/p/:slug", asyncRoute(async (req, res) => {
+    const row = (await db.prepare("SELECT html FROM pages WHERE slug = ?").get(req.params.slug)) as
       | { html: string }
       | undefined;
     if (!row) {
@@ -118,7 +119,7 @@ export function createApp(db: Database.Database, options: AppOptions): express.E
       return;
     }
     res.set("Cache-Control", "no-store").type("html").send(row.html);
-  });
+  }));
 
   app.use("/generated", express.static(generatedDirectory(), { fallthrough: true }));
 

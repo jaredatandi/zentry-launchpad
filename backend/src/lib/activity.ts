@@ -1,14 +1,15 @@
-import type Database from "better-sqlite3";
+import type { AsyncDatabase } from "../db/types";
 import { nowIso } from "./time";
 
-export function logActivity(
-  db: Database.Database,
+export const ACTIVITY_INSERT =
+  "INSERT INTO activity (type, entity, message, created_at) VALUES (?, ?, ?, ?)";
+
+export async function logActivity(
+  db: AsyncDatabase,
   type: string,
   entity: string,
   message: string,
   createdAt?: string,
-): void {
-  db.prepare(
-    "INSERT INTO activity (type, entity, message, created_at) VALUES (?, ?, ?, ?)",
-  ).run(type, entity, message, createdAt ?? nowIso());
+): Promise<void> {
+  await db.prepare(ACTIVITY_INSERT).run(type, entity, message, createdAt ?? nowIso());
 }

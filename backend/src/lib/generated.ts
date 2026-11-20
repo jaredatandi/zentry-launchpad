@@ -11,9 +11,11 @@ export function generatedDirectory(): string {
 
 export function writeGeneratedPage(slug: string, html: string): string {
   const dir = generatedDirectory();
-  mkdirSync(dir, { recursive: true });
   const safeName = slugify(slug);
   const path = join(dir, `${safeName}.html`);
+  // On Vercel the filesystem is read-only; the HTML is already in the database.
+  if (process.env.VERCEL) return path;
+  mkdirSync(dir, { recursive: true });
   writeFileSync(path, html, "utf8");
   return path;
 }

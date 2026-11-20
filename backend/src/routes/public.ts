@@ -1,17 +1,18 @@
 import { Router } from "express";
-import type Database from "better-sqlite3";
+import type { AsyncDatabase } from "../db/types";
+import { asyncRoute } from "../lib/asyncRoute";
 import { logActivity } from "../lib/activity";
 import { nowIso } from "../lib/time";
 import { clientIp } from "../lib/clientIp";
 import { RateLimiter } from "../lib/rateLimit";
 import { enquirySchema, formatIssues, leadSchema } from "../validation";
 
-export function publicRouter(db: Database.Database): Router {
+export function publicRouter(db: AsyncDatabase): Router {
   const router = Router();
   const leadLimiter = new RateLimiter(5, 10 * 60 * 1000);
   const enquiryLimiter = new RateLimiter(6, 10 * 60 * 1000);
 
-  router.post("/leads", (req, res) => {
+  router.post("/leads", asyncRoute(async (req, res) => {
     const limit = leadLimiter.check(clientIp(req));
     if (!limit.allowed) {
       res.set("Retry-After", String(limit.retryAfter));
@@ -34,7 +35,7 @@ export function publicRouter(db: Database.Database): Router {
       return;
     }
 
-    const result = db
+    const result = await db
       .prepare(
         `INSERT INTO leads (name, email, phone, business, need, source, status, created_at)
          VALUES (?, ?, ?, ?, ?, ?, 'new', ?)`,
@@ -48,16 +49,16 @@ export function publicRouter(db: Database.Database): Router {
         input.source,
         nowIso(),
       );
-    logActivity(
+    await logActivity(
       db,
       "lead_created",
       `lead:${result.lastInsertRowid}`,
       `New lead received (${input.source})`,
     );
     res.status(201).json({ ok: true, id: Number(result.lastInsertRowid) });
-  });
+  }));
 
-  router.post("/enquiries", (req, res) => {
+  router.post("/enquiries", asyncRoute(async (req, res) => {
     const limit = enquiryLimiter.check(clientIp(req));
     if (!limit.allowed) {
       res.set("Retry-After", String(limit.retryAfter));
@@ -80,29 +81,29 @@ export function publicRouter(db: Database.Database): Router {
       return;
     }
 
-    const page = db
+    const page = (await db
       .prepare("SELECT id, slug, status FROM pages WHERE id = ?")
-      .get(input.pageId) as { id: number; slug: string; status: string } | undefined;
+      .get(input.pageId)) as { id: number; slug: string; status: string } | undefined;
     if (!page || page.status === "archived") {
       res.status(404).json({ error: "This page is no longer accepting enquiries." });
       return;
     }
 
     const source = `page:${page.slug}${input.source ? ` · ${input.source}` : ""}`.slice(0, 120);
-    const result = db
+    const result = await db
       .prepare(
         `INSERT INTO enquiries (page_id, name, phone, message, source, created_at, notified)
          VALUES (?, ?, ?, ?, ?, ?, 0)`,
       )
       .run(page.id, input.name, input.phone, input.message, source, nowIso());
-    logActivity(
+    await logActivity(
       db,
       "enquiry_created",
       `page:${page.slug}`,
       `Enquiry received on /p/${page.slug}`,
     );
     res.status(201).json({ ok: true, id: Number(result.lastInsertRowid) });
-  });
+  }));
 
   return router;
 }
