@@ -128,21 +128,20 @@ the app is directly exposed so `X-Forwarded-For` cannot spoof rate-limit keys.
 
 ## Deploy (still $0, no card)
 
-The production stack is **Vercel Hobby (free) + Turso SQLite (free)**: the React
+The production stack is **Vercel Hobby (free) + Neon Postgres (free)**: the React
 site and the Express API share one `*.vercel.app` origin, and data lives in a
-remote SQLite database. Both providers offer a genuine no-card free tier and
+remote Postgres database. Both providers offer a genuine no-card free tier and
 GitHub sign-in.
 
-1. Create a free Turso database: `turso db create zentry-launchpad`.
-2. Copy the schema in with
-   `turso db shell zentry-launchpad < backend/migrations/001_initial.sql`.
-3. Create a token: `turso db tokens create zentry-launchpad`.
-4. In Vercel, import `jaredatandi/zentry-launchpad` and add these Environment
-   Variables: `TURSO_DATABASE_URL`, `TURSO_AUTH_TOKEN`, `SESSION_SECRET`,
-   `ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH`, `COOKIE_SECURE=true`, `TRUST_PROXY=1`.
+1. Create a free Neon project and copy its pooled Postgres connection string.
+2. The schema and demo seed are applied automatically on first request by
+   `backend/src/db/postgres.ts` (the SQLite schema is translated to Postgres).
+3. In Vercel, import `jaredatandi/zentry-launchpad` and add these Environment
+   Variables: `DATABASE_URL`, `SESSION_SECRET`, `ADMIN_EMAIL`,
+   `ADMIN_PASSWORD_HASH`, `COOKIE_SECURE=true`, `TRUST_PROXY=1`.
    Generate the secret and bcrypt hash locally with `npm run setup:admin`, then
    paste only their values into Vercel — never into git.
-5. Deploy. `vercel.json` builds both workspaces, serves `frontend/dist` and
+4. Deploy. `vercel.json` builds both workspaces, serves `frontend/dist` and
    routes `/api/*` and `/p/*` to the single serverless function in `api/index.js`.
 
 For local development, leave the Turso variables empty: `npm start` uses the

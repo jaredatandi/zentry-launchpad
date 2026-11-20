@@ -1,20 +1,19 @@
 /* Vercel serverless entrypoint.
- * The whole Express app is reused; only the database is remote (Turso/libSQL).
+ * The whole Express app is reused; only the database is remote (Neon Postgres).
  * Secrets are injected as Vercel environment variables, never committed.
  */
 const serverless = require("serverless-http");
 const { createApp } = require("../backend/dist/app");
-const { openRemoteDatabase } = require("../backend/dist/db");
+const { openPostgresDatabase } = require("../backend/dist/db/postgres");
 
 let handlerPromise;
 
 async function buildHandler() {
-  const url = process.env.TURSO_DATABASE_URL;
-  const token = process.env.TURSO_AUTH_TOKEN;
-  if (!url || !token) {
-    throw new Error("TURSO_DATABASE_URL and TURSO_AUTH_TOKEN must be configured on Vercel");
+  const databaseUrl = process.env.DATABASE_URL;
+  if (!databaseUrl) {
+    throw new Error("DATABASE_URL must be configured on Vercel");
   }
-  const db = openRemoteDatabase(url, token);
+  const db = openPostgresDatabase(databaseUrl);
   await db.ready;
 
   const app = createApp(db, {
