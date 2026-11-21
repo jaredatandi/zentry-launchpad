@@ -37,7 +37,7 @@ export function renderPage(config: PageRenderConfig, pageId: number, slug: strin
 <meta name="theme-color" content="${accent}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 52'%3E%3Cpath d='M22 2 42 10v18c0 12-8.6 19.4-20 22C10.6 47.4 2 40 2 28V10L22 2Z' fill='%2308131F' stroke='${accent.slice(1)}' stroke-width='3'/%3E%3C/svg%3E">
 <style>
-:root{--accent:${accent};--navy:#08131F;--ink:#102434;--muted:#5A6E80;--line:#E2E9EF;--bg:#F6F9FB}
+:root{--accent:${accent};--navy:#08131F;--ink:#152431;--muted:#5D6F7E;--line:#D8E1E7;--bg:#F7F8F6;--radius:6px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:#fff;color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
@@ -47,22 +47,22 @@ a{color:var(--accent)}
 .strip{background:var(--navy);color:#A9BBC8;font-size:12px;padding:9px 0}
 .strip .wrap{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .strip svg{width:15px;height:18px;flex:none}
-header{background:radial-gradient(600px 300px at 90% 0%,rgba(0,214,180,.12),transparent 70%),var(--navy);color:#fff;padding:52px 0 58px}
+header{background:var(--navy);color:#fff;padding:52px 0 58px}
 .brand{display:inline-flex;align-items:center;gap:9px;color:#fff;font-weight:800;letter-spacing:-.02em;text-decoration:none;margin-bottom:30px}
 .brand svg{width:22px;height:26px}
 h1{font-size:clamp(30px,7vw,46px);line-height:1.12;letter-spacing:-.025em;margin:0 0 14px}
 .sub{color:#C1D0DC;font-size:17px;max-width:36ch;margin:0}
-.call{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;margin:30px 0 12px;border-radius:12px;background:var(--accent);color:#04231E;font-weight:800;font-size:17px;text-decoration:none;box-shadow:0 10px 26px rgba(0,0,0,.18)}
+.call{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;margin:30px 0 12px;border-radius:var(--radius);background:var(--accent);color:#04231E;font-weight:800;font-size:17px;text-decoration:none}
 .call:hover{filter:brightness(1.06)}
 .where{color:#C1D0DC;font-size:14px;text-align:center;margin:0}
 section{padding:42px 0}
 h2{font-size:24px;letter-spacing:-.02em;margin:0 0 10px}
 p.lead{color:var(--muted);margin:0 0 22px}
-form{display:grid;gap:14px;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:22px}
+form{display:grid;gap:14px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px}
 label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
-input,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid #CAD6DF;border-radius:9px;padding:12px 13px}
+input,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid #CFD8DE;border-radius:var(--radius);padding:12px 13px}
 textarea{min-height:110px;resize:vertical}
-button{min-height:50px;border:0;border-radius:10px;background:var(--navy);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+button{min-height:50px;border:0;border-radius:var(--radius);background:var(--navy);color:#fff;font:inherit;font-weight:700;cursor:pointer}
 button:hover{background:#10283C}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 #status{margin:12px 0 0;font-size:14px;font-weight:600;min-height:1.4em}
@@ -80,7 +80,7 @@ footer a{color:var(--accent)}
 <a class="brand" href="/p/${safeSlug}">${shield}<span>Zentry page</span></a>
 <h1>${name}</h1>
 <p class="sub">${blurb}</p>
-<a class="call" href="${href}">&#128222; Call ${phone}</a>
+<a class="call" href="${href}">Call ${phone}</a>
 <p class="where">${address}</p>
 </div></header>
 <main>

@@ -128,7 +128,7 @@ export function Home() {
           <p>We do not hand you to a separate mobile, desktop or security vendor. The same senior engineers design, build, connect and secure the work.</p>
           <div className="chips">
             {PLATFORMS.map((platform) => (
-              <span className="chip" key={platform}><CheckIcon /> {platform}</span>
+              <span className="chip" key={platform}>{platform}</span>
             ))}
           </div>
         </div>
@@ -315,7 +315,7 @@ export function LaunchPage() {
         </div>
         <div className="ethics" style={{ marginTop: 26 }}>
           <h3>Need more than one page?</h3>
-          <p>We also build web apps, Android and iOS apps, desktop tools for Windows, macOS and Linux, APIs and cloud systems — plus secure code reviews and written-scope security work. <Link to="/contact" style={{ color: "var(--teal-b)" }}>Tell us what you are building &rarr;</Link></p>
+          <p>We also build web apps, Android and iOS apps, desktop tools for Windows, macOS and Linux, APIs and cloud systems — plus secure code reviews and written-scope security work. <Link to="/contact">Tell us what you are building &rarr;</Link></p>
         </div>
         <p style={{ marginTop: 26 }}><Link className="btn outline" to="/demo">See the live example first</Link></p>
       </div>
@@ -326,17 +326,17 @@ export function LaunchPage() {
 export function Demo() {
   return (
     <>
-      <div style={{ background: "#10283c", color: "#a9bbc8", fontSize: 13, padding: "10px 0" }}>
+      <div style={{ background: "#102536", color: "#aebdca", fontSize: 13, padding: "10px 0" }}>
         <div className="container">DEMO — fictional business, built by Zentry as a working example &middot; <Link to="/holding-page">Read the guide</Link></div>
       </div>
       <section className="block" style={{ paddingTop: 34 }}>
         <div className="narrow">
           <div className="service-card" style={{ padding: 0, overflow: "hidden" }}>
-            <div style={{ background: "radial-gradient(500px 200px at 85% 0, rgba(0,214,180,.16), transparent 70%), #08131f", color: "#fff", padding: "44px 30px" }}>
+            <div style={{ background: "#08131f", color: "#fff", padding: "44px 30px" }}>
               <p className="overline">A real launch page</p>
               <h1 style={{ fontSize: "clamp(29px,5vw,44px)", margin: "0 0 10px" }}>Riverside Dental Practice</h1>
               <p style={{ color: "#c1d0dc" }}>Family dentistry in Riverside — open and taking appointments</p>
-              <a className="btn" href="tel:+441234567890" style={{ marginTop: 12 }}>&#128222; Call 01234 567 890</a>
+              <a className="btn" href="tel:+441234567890" style={{ marginTop: 12 }}>Call 01234 567 890</a>
               <p style={{ color: "#c1d0dc", fontSize: 14, marginTop: 14 }}>18 Mill Lane, Riverside, RV1 2AB &middot; Mon–Fri 8:30–5:30</p>
             </div>
             <div style={{ padding: 28 }}>
