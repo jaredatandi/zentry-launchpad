@@ -1,0 +1,14 @@
+node_modules
+.git
+.playwright-mcp
+coverage
+dist
+backend/data
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+*.log
+.env
+.env.*
