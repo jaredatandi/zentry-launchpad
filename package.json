@@ -19,5 +19,8 @@
     "start": "npm run start -w backend",
     "test": "npm test -w backend"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": "22.x"
+  }
 }
