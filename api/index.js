@@ -48,6 +48,12 @@ async function buildHandler() {
 
 module.exports = async function handler(req, res) {
   console.log("[zentry] request", req.method, req.url);
+  if (req.url && req.url.split("?")[0] === "/api/ping") {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify({ ok: true, ping: true }));
+    return;
+  }
   if (!handlerPromise) handlerPromise = buildHandler();
   try {
     const handler = await handlerPromise;
