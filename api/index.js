@@ -54,6 +54,12 @@ module.exports = async function handler(req, res) {
     res.end(JSON.stringify({ ok: true, ping: true }));
     return;
   }
+  if (req.url && req.url.split("?")[0] === "/api/probe") {
+    const express = require("express");
+    const probe = express();
+    probe.get("/api/probe", (_req, res) => res.json({ ok: true, probe: true }));
+    return serverless(probe)(req, res);
+  }
   if (!handlerPromise) handlerPromise = buildHandler();
   try {
     const handler = await handlerPromise;
