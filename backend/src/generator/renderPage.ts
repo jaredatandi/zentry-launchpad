@@ -77,7 +77,7 @@ footer a{color:var(--accent)}
 <body>
 <div class="strip"><div class="wrap">${shield}<span>Our new website is on its way — you can reach us today.</span></div></div>
 <header><div class="wrap">
-<a class="brand" href="/p/${safeSlug}">${shield}<span>Zentry page</span></a>
+<a class="brand" href="/p/${safeSlug}">${shield}<span>Built by Zentry</span></a>
 <h1>${name}</h1>
 <p class="sub">${blurb}</p>
 <a class="call" href="${href}">Call ${phone}</a>
@@ -101,7 +101,7 @@ footer a{color:var(--accent)}
 </div></section>
 <section class="upcoming"><div class="wrap">
 <h2>Our new website is on its way</h2>
-<p>Until it launches, call or send an enquiry above and we will get straight back to you. This page was built and is hosted by Zentry — Guard the entry. Move at speed.</p>
+<p>Until it launches, call or send an enquiry above. This page was built and hosted by Zentry. Guard the entry. Move at speed.</p>
 </div></section>
 </main>
 <footer><div class="wrap">Page by <a href="https://jaredatandi.github.io/zentry-site/" rel="noopener">Zentry</a> &middot; Guard the entry. Move at speed.</div></footer>

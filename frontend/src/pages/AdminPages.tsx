@@ -51,13 +51,13 @@ export function Login() {
         <div className="auth-brand-copy">
           <p className="overline">Owner access</p>
           <p className="auth-tagline">Guard the entry.</p>
-          <p>One private workspace for leads, clients, launch pages, invoices and the enquiry inbox.</p>
+          <p>Leads, clients, pages, invoices and enquiries in one place.</p>
         </div>
         <div className="auth-brand-foot">
           <span className="auth-lock" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="10" width="16" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg>
           </span>
-          <span>Authorised owner access only. Every action is recorded in the activity log.<br />Guard the entry. Move at speed.</span>
+          <span>Owner access only. Every action is recorded in the activity log.<br />Guard the entry. Move at speed.</span>
         </div>
       </aside>
 
@@ -65,7 +65,7 @@ export function Login() {
         <div className="auth-card">
           <div className="auth-head">
             <span className="badge-soft">Zentry Launchpad</span>
-            <h1>Sign in to the admin</h1>
+            <h1>Owner sign-in</h1>
             <p className="muted">Use the owner account configured in the private environment file.</p>
           </div>
           <ErrorNote message={error} />

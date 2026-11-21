@@ -31,9 +31,9 @@ export function Home() {
         <div className="container">
           <div>
             <p className="overline">Software engineering · Cybersecurity · Nairobi</p>
-            <h1>Software that holds up. <em>Systems that stay safe.</em></h1>
+            <h1>We build the software. <em>We secure it too.</em></h1>
             <p className="lede">
-              Zentry builds <strong>web apps, mobile apps, desktop software, APIs and cloud systems</strong> — then secures them with practical AppSec and written-scope security reviews. One senior team takes the work from first conversation to production.
+              Zentry builds <strong>web apps, mobile apps, desktop software, APIs and cloud systems</strong> — then reviews the code and the design for security. One senior team takes the work from the first conversation to production.
             </p>
             <div className="cta-row">
               <Link className="btn" to="/contact">Start a project &rarr;</Link>
@@ -45,23 +45,23 @@ export function Home() {
             </div>
           </div>
 
-          <aside className="hero-visual" aria-label="What Zentry delivers">
-            <div className="visual-head"><span>Delivery snapshot</span><b>Zentry / v1</b></div>
+          <aside className="hero-visual" aria-label="What Zentry does">
+            <div className="visual-head"><span>What we do</span><b>Zentry / Nairobi</b></div>
             <div className="visual-row"><span className="k">Build</span><span className="v"><b>Web &amp; mobile</b> · Android, iOS, responsive front ends</span></div>
             <div className="visual-row"><span className="k">Devices</span><span className="v"><b>Desktop</b> · Windows, macOS, Linux</span></div>
             <div className="visual-row"><span className="k">Connect</span><span className="v"><b>APIs &amp; cloud</b> · integrations, CI/CD, automation</span></div>
-            <div className="visual-row"><span className="k">Secure</span><span className="v"><b>AppSec</b> · secure reviews, threat modelling, DevSecOps</span></div>
-            <div className="visual-row"><span className="k">Deliver</span><span className="v"><b>Written scope</b> · tested, documented, handed over</span></div>
-            <div className="visual-foot"><span>Fixed quote</span><span>48h launch pages</span><span>Two revisions</span><span>Nairobi, KE</span></div>
+            <div className="visual-row"><span className="k">Secure</span><span className="v"><b>AppSec</b> · code review, threat modelling, DevSecOps</span></div>
+            <div className="visual-row"><span className="k">Launch</span><span className="v"><b>One-page sites</b> · live in 48 hours, two rounds of changes</span></div>
+            <div className="visual-foot"><span>Fixed quote</span><span>Written scope</span><span>Senior engineers</span><span>Nairobi, KE</span></div>
           </aside>
         </div>
       </header>
 
       <div className="trust">
         <div className="container">
-          <div className="trust-item"><CheckIcon /><div><b>48-hour launch pages</b><span>One clear page, live fast — not a months-long project.</span></div></div>
-          <div className="trust-item"><ShieldIcon /><div><b>Scope you can sign</b><span>Fixed quote and written scope before any work begins.</span></div></div>
-          <div className="trust-item"><CpuIcon /><div><b>Senior hands on the tools</b><span>The people who scope the work build and secure it.</span></div></div>
+          <div className="trust-item"><CheckIcon /><div><b>48-hour launch pages</b><span>One page built from details you already have.</span></div></div>
+          <div className="trust-item"><ShieldIcon /><div><b>Written scope first</b><span>Fixed quote and scope agreed before work starts.</span></div></div>
+          <div className="trust-item"><CpuIcon /><div><b>Seniors on the tools</b><span>The people who quote the work do the work.</span></div></div>
           <div className="trust-item"><RocketIcon /><div><b>Built for real devices</b><span>Browser, phone, tablet, Windows, macOS and Linux.</span></div></div>
         </div>
       </div>
@@ -70,15 +70,15 @@ export function Home() {
         <div className="container">
           <div className="section-head">
             <p className="eyebrow">What we do</p>
-            <h2>Engineering and security, together.</h2>
-            <p>Most teams build a product and hand it over. We work both sides — so the software is sound, and the risks are understood before they become incidents.</p>
+            <h2>One team for the build and the security.</h2>
+            <p>Most projects hand security to someone else at the end. We keep it in the build, so problems are found while they are still cheap to fix.</p>
           </div>
           <div className="grid-3">
             <article className="service-card">
               <span className="service-icon"><CodeIcon /></span>
               <span className="idx">01 / SOFTWARE DEVELOPMENT</span>
-              <h3>Products that survive real use.</h3>
-              <p className="sub">From first sketch to production, built to be maintained afterwards.</p>
+              <h3>Products built to be maintained.</h3>
+              <p className="sub">From the first sketch through launch, with code someone else can work on.</p>
               <ul>
                 <li>Web applications and customer portals</li>
                 <li>Android and iOS mobile apps</li>
@@ -91,8 +91,8 @@ export function Home() {
             <article className="service-card alt">
               <span className="service-icon"><ShieldIcon /></span>
               <span className="idx">02 / CYBERSECURITY</span>
-              <h3>Find the gaps while they are cheap to fix.</h3>
-              <p className="sub">Security built into the work, not bolted on after launch.</p>
+              <h3>Security before launch, not after.</h3>
+              <p className="sub">Reviews, threat models and fixes while the code is still being written.</p>
               <ul>
                 <li>Application security and secure code reviews</li>
                 <li>Vulnerability assessment and remediation plans</li>
@@ -106,16 +106,16 @@ export function Home() {
             <article className="service-card">
               <span className="service-icon"><RocketIcon /></span>
               <span className="idx">03 / LAUNCH PAGE FACTORY</span>
-              <h3>One clear page. Live in 48 hours.</h3>
-              <p className="sub">For businesses whose real site is still in progress — or who need one page that converts.</p>
+              <h3>One page, live in 48 hours.</h3>
+              <p className="sub">For businesses whose site is still being built, or who only need one page that gets the phone to ring.</p>
               <ul>
                 <li>Mobile-first one-page site from your details</li>
                 <li>Tap-to-call phone and full address</li>
-                <li>Three-field enquiry form into our admin inbox</li>
-                <li>Two revision rounds included</li>
+                <li>Three-field form into the Zentry inbox</li>
+                <li>Two rounds of changes included</li>
                 <li>US$79 / KES 2,500, no subscription</li>
               </ul>
-              <p className="service-note"><Link to="/launch-page">See exactly what is included &rarr;</Link></p>
+              <p className="service-note"><Link to="/launch-page">See what is included &rarr;</Link></p>
             </article>
           </div>
         </div>
@@ -123,9 +123,9 @@ export function Home() {
 
       <section className="platforms">
         <div className="container">
-          <p className="overline">Built for the devices your customers use</p>
+          <p className="overline">The devices your customers use</p>
           <h2>One team across your whole stack.</h2>
-          <p>We do not hand you to a separate mobile, desktop or security vendor. The same senior engineers design, build, connect and secure the work.</p>
+          <p>We do not hand you to a separate mobile, desktop or security vendor. The same engineers design, build, connect and secure the work.</p>
           <div className="chips">
             {PLATFORMS.map((platform) => (
               <span className="chip" key={platform}>{platform}</span>
@@ -138,13 +138,13 @@ export function Home() {
         <div className="container">
           <div className="section-head">
             <p className="eyebrow">Why Zentry</p>
-            <h2>A partner, not a marketplace.</h2>
-            <p>Small team, senior people, clear commitments. You work with the people who actually do the work.</p>
+            <h2>No hand-offs.</h2>
+            <p>Small team, senior engineers, written scope. You deal with the people who build and secure the work.</p>
           </div>
           <div className="grid-3">
-            <div className="pillar"><span className="n">01</span><h4>Both sides in one room</h4><p>Engineering and security happen together. Weaknesses are caught during the build, not after a breach.</p></div>
-            <div className="pillar"><span className="n">02</span><h4>Scope you can sign</h4><p>Written scope, fixed quote and timeline before anything starts. No surprise invoices.</p></div>
-            <div className="pillar"><span className="n">03</span><h4>Senior hands on the work</h4><p>The people who scope your project are the people who build, test and hand it over.</p></div>
+            <div className="pillar"><span className="n">01</span><h4>Build and security in one team</h4><p>We catch weak spots during the build, not after an incident.</p></div>
+            <div className="pillar"><span className="n">02</span><h4>Scope in writing</h4><p>Fixed quote and timeline before anything starts. No surprise invoices.</p></div>
+            <div className="pillar"><span className="n">03</span><h4>Seniors on the tools</h4><p>The people who scope the work build, test and hand it over.</p></div>
           </div>
         </div>
       </section>
@@ -153,14 +153,14 @@ export function Home() {
         <div className="container">
           <div className="section-head">
             <p className="eyebrow">How we work</p>
-            <h2>Four steps, no theatre.</h2>
-            <p>A short process so you always know where things stand and what happens next.</p>
+            <h2>Four steps from first message to handover.</h2>
+            <p>You will know what we are doing, when, and what it costs.</p>
           </div>
           <div className="steps">
             <div className="step-card"><h4>Discuss</h4><p>Tell us the problem, the platforms you need and the deadline. A call or an email is enough.</p></div>
             <div className="step-card"><h4>Scope</h4><p>We send a written scope, fixed quote and timeline for your approval before work starts.</p></div>
-            <div className="step-card"><h4>Build &amp; secure</h4><p>We develop, review and test — including security checks where they matter and are authorised.</p></div>
-            <div className="step-card"><h4>Deliver</h4><p>We hand over the code, access and documentation, then stay available for the follow-up.</p></div>
+            <div className="step-card"><h4>Build &amp; secure</h4><p>We build, review the code and run the security checks that are in scope.</p></div>
+            <div className="step-card"><h4>Deliver</h4><p>You get the code, access and documentation. We stay reachable for follow-up.</p></div>
           </div>
         </div>
       </section>
@@ -168,8 +168,8 @@ export function Home() {
       <section className="block tint">
         <div className="narrow">
           <div className="ethics">
-            <h3>Responsible security work</h3>
-            <p>We only assess systems you own, or that you have explicit written permission to assess, and only inside an agreed scope. <b>No exceptions.</b> For security work we agree the rules of engagement first — target, dates and boundaries — because that protects you, your users and us. This site does not perform scanning or testing of any kind.</p>
+            <h3>Security work has rules.</h3>
+            <p>We only assess systems you own, or ones you have written permission to assess, and only inside the agreed scope. Target, dates and boundaries are agreed first. <b>No exceptions.</b> This site does not scan or test anything.</p>
           </div>
         </div>
       </section>
@@ -178,28 +178,28 @@ export function Home() {
         <div className="container">
           <div className="section-head">
             <p className="eyebrow">Ways to work together</p>
-            <h2>Start small. Stay for the hard parts.</h2>
-            <p>A fixed-price entry point, and a senior team for the software and security work that follows.</p>
+            <h2>Two ways to start.</h2>
+            <p>A fixed-price page if you need one now, or a quoted engagement for the larger build.</p>
           </div>
           <div className="grid-2">
             <div className="offer featured">
               <span className="badge-soft">Fixed price · 48 hours</span>
               <div className="price">US$79 <small>/ KES 2,500</small></div>
-              <h3>Launch Page</h3>
-              <p className="muted" style={{ fontSize: 14 }}>A one-page mobile site with tap-to-call, address, three-field enquiry form and Zentry branding.</p>
+              <h3>One-page launch site</h3>
+              <p className="muted" style={{ fontSize: 14 }}>A mobile page with your phone number, address, a short service note and a three-field enquiry form.</p>
               <ul>
-                <li>Delivered within 48 hours of confirmed details</li>
-                <li>Two revision rounds included</li>
-                <li>No subscription or ongoing fee</li>
+                <li>Live within 48 hours of confirmed details and payment</li>
+                <li>Two rounds of changes</li>
+                <li>No subscription</li>
                 <li>Kenya: M-Pesa Till 6200945. International: bank details sent on confirmation.</li>
               </ul>
               <Link className="btn" to="/contact">Order a launch page &rarr;</Link>
             </div>
             <div className="offer">
-              <span className="badge-soft">Fixed scope · quoted</span>
+              <span className="badge-soft">Quoted</span>
               <div className="price">Project work <small>/ quoted</small></div>
-              <h3>Software &amp; security engagements</h3>
-              <p className="muted" style={{ fontSize: 14 }}>Web, Android, iOS, Windows, macOS, Linux, APIs, cloud — with AppSec woven in where it matters.</p>
+              <h3>Software and security work</h3>
+              <p className="muted" style={{ fontSize: 14 }}>Web apps, Android, iOS, desktop apps for Windows, macOS and Linux, APIs and cloud work. Security is part of the build where it matters.</p>
               <ul>
                 <li>New products, rebuilds and technical takeovers</li>
                 <li>Secure code review, threat modelling and remediation plans</li>
@@ -215,23 +215,23 @@ export function Home() {
       <section className="block tint">
         <div className="narrow">
           <div className="section-head"><p className="eyebrow">Good questions</p><h2>Before you get in touch.</h2></div>
-          <details className="faq"><summary>Do you only build websites?</summary><p>No. We build web apps and portals, Android and iOS apps, desktop software for Windows, macOS and Linux, APIs and cloud delivery pipelines. The US$79 launch page is our small, fixed-price entry point.</p></details>
-          <details className="faq"><summary>Can you work with our existing code and team?</summary><p>Yes. Code review, refactoring and technical takeovers are part of the work. We can join an existing repository, follow your conventions and hand back clean, documented changes.</p></details>
-          <details className="faq"><summary>How does payment work?</summary><p>For Kenya, pay by M-Pesa Till 6200945 using your own phone number as the reference. For international clients, payment is by bank transfer; details are sent on confirmation. No card, subscription or ad spend is involved.</p></details>
-          <details className="faq"><summary>Do you do security testing?</summary><p>Only inside written, owner-approved scope that names the target and dates. We start with secure design reviews, code review and threat modelling. We do not scan or test systems outside that agreement, and this site contains no testing tools.</p></details>
-          <details className="faq"><summary>What is the launch page turnaround?</summary><p>48 hours from confirmed details and payment, with two rounds of revisions included. Send the business name, phone, address and a short service description and we will take it from there.</p></details>
+          <details className="faq"><summary>Do you only build websites?</summary><p>No. We build web apps and portals, Android and iOS apps, desktop software for Windows, macOS and Linux, APIs and cloud delivery pipelines. The US$79 launch page is the small, fixed-price option.</p></details>
+          <details className="faq"><summary>Can you work with our existing code and team?</summary><p>Yes. We review code, refactor and take over projects. We can join your repository, follow your conventions and hand back clean changes.</p></details>
+          <details className="faq"><summary>How does payment work?</summary><p>For Kenya, pay by M-Pesa Till 6200945 using your phone number as the reference. For international clients, bank transfer; details are sent on confirmation. No card or subscription.</p></details>
+          <details className="faq"><summary>Do you do security testing?</summary><p>Only inside written, owner-approved scope naming the target and dates. We start with secure design reviews, code review and threat modelling. This site contains no scanning or testing tools.</p></details>
+          <details className="faq"><summary>What is the launch page turnaround?</summary><p>48 hours from confirmed details and payment, with two rounds of changes included. Send the business name, phone, address and a short description of what you do.</p></details>
         </div>
       </section>
 
       <section className="contact-band">
         <div className="container">
           <p className="overline">Get in touch</p>
-          <h2>Tell us what you are building.</h2>
-          <p className="intro">A product, a security review, or one clear page this week. We reply within two hours during Nairobi business hours.</p>
+          <h2>Tell us what you need.</h2>
+          <p className="intro">A product, a security review, or one page this week. We reply within two hours during Nairobi business hours.</p>
           <div className="grid-3 cgrid">
-            <div className="cbox"><div className="l">Call / WhatsApp</div><a href="tel:+254701074998">+254 701 074 998</a><small>Fastest way to reach us</small></div>
+            <div className="cbox"><div className="l">Call / WhatsApp</div><a href="tel:+254701074998">+254 701 074 998</a><small>Fastest reply</small></div>
             <div className="cbox"><div className="l">Email</div><a href="mailto:jaredkeago07@gmail.com">jaredkeago07@gmail.com</a><small>Attach a brief if you have one</small></div>
-            <div className="cbox"><div className="l">Office</div><strong>Nairobi, Kenya</strong><small>Working across time zones</small></div>
+            <div className="cbox"><div className="l">Office</div><strong>Nairobi, Kenya</strong><small>Replies during local business hours</small></div>
           </div>
           <p className="pay">Payment is by international bank transfer, or by M-Pesa Till <code>6200945</code> for clients in Kenya. Bank details are supplied on confirmation. No subscriptions and no card required.</p>
           <div className="cta-row"><Link className="btn" to="/contact">Send an enquiry &rarr;</Link><a className="btn ghost" href="mailto:jaredkeago07@gmail.com?subject=Project%20enquiry">Email the owner</a></div>
@@ -268,14 +268,14 @@ export function Guide() {
           <ul>
             <li><strong>Banner plus half-built pages.</strong> A “coming soon” banner above live service pages sends two messages at once. Pick one story.</li>
             <li><strong>Email only.</strong> “Please email us” loses the people who want to speak to a human now.</li>
-            <li><strong>No next step on mobile.</strong> If the call button is not tappable and the form has five fields, the visitor bounces.</li>
+            <li><strong>No next step on mobile.</strong> If the call button is not tappable and the form has five fields, the visitor leaves.</li>
           </ul>
           <h2>See a finished example</h2>
           <p>We built a complete demo holding page — a fictional dental practice — so you can see exactly what this looks like on a phone before deciding anything.</p>
           <p><Link className="btn" to="/demo">View the live example &rarr;</Link></p>
           <h2>If you need more than a page</h2>
-          <p>Zentry is a software engineering and cybersecurity company. Alongside the 48-hour launch page, we build web apps, Android and iOS apps, Windows, macOS and Linux desktop software, APIs and cloud systems — with AppSec and written-scope security reviews where they matter.</p>
-          <p>Zentry builds the one-page mobile site from details that are already public about your business. US$79 (KES 2,500 in Kenya), two revisions, no subscription. Bank transfer internationally; M-Pesa Till 6200945 in Kenya.</p>
+          <p>Zentry is a software engineering and cybersecurity company in Nairobi. Alongside the 48-hour page, we build web apps, mobile apps, desktop software, APIs and cloud systems. Security reviews happen inside written scope.</p>
+          <p>We build the page from details you already use publicly: name, phone, address and one line about the service. US$79, or KES 2,500 in Kenya. Two rounds of changes, no subscription. Bank transfer internationally; M-Pesa Till 6200945 in Kenya.</p>
           <p>Email <a href="mailto:jaredkeago07@gmail.com">jaredkeago07@gmail.com</a> or WhatsApp/call +254 701 074 998 and say “holding page”. We'll send the example page and a quote — no obligation.</p>
         </div>
       </section>
@@ -288,28 +288,28 @@ export function LaunchPage() {
     <section className="block">
       <div className="narrow">
         <p className="eyebrow">US$79 / KES 2,500 · 48 hours</p>
-        <h1 className="sec">The one-page launch service</h1>
-        <p className="intro">A fast, focused web presence for businesses whose real site is still in progress — or who simply need one clear page that turns visitors into calls. Built by Zentry, a software engineering and cybersecurity company.</p>
+        <h1 className="sec">A one-page site, live in 48 hours.</h1>
+        <p className="intro">For businesses whose site is still being built, or who only need one page that gets the phone to ring. Built by Zentry, a software engineering and cybersecurity company in Nairobi.</p>
         <div className="grid-2">
           <div className="service-card">
             <span className="service-icon"><CheckIcon /></span>
             <h3>What you get</h3>
             <ul>
-              <li>Mobile-first one-page site built from your details</li>
+              <li>One mobile-first page built from your details</li>
               <li>Tap-to-call phone button and full address</li>
-              <li>Three-field enquiry form delivered to our admin inbox</li>
+              <li>Three-field form that lands in our inbox</li>
               <li>Service blurb and your accent colour</li>
-              <li>Zentry branding and a link to our work</li>
-              <li>Two revision rounds</li>
-              <li>Delivery within 48 hours of confirmed details</li>
+              <li>Zentry branding and a link back to this site</li>
+              <li>Two rounds of changes</li>
+              <li>Live within 48 hours of confirmed details and payment</li>
             </ul>
           </div>
           <div className="service-card">
             <span className="service-icon"><ShieldIcon /></span>
-            <h3>Simple payment, no subscription</h3>
-            <p>Kenya: pay by M-Pesa Till <strong>6200945</strong>, using your own phone number as the reference.</p>
+            <h3>Payment</h3>
+            <p>Kenya: pay by M-Pesa Till <strong>6200945</strong>, using your phone number as the reference.</p>
             <p>International: bank transfer. Bank details are sent on confirmation — never published here.</p>
-            <p>Two revisions and 48h delivery are included. No card, no ongoing fee, no ad spend.</p>
+            <p>Two rounds of changes and 48-hour delivery are included. No card, no ongoing fee.</p>
             <Link className="btn" to="/contact">Order a launch page &rarr;</Link>
           </div>
         </div>
@@ -327,13 +327,13 @@ export function Demo() {
   return (
     <>
       <div style={{ background: "#102536", color: "#aebdca", fontSize: 13, padding: "10px 0" }}>
-        <div className="container">DEMO — fictional business, built by Zentry as a working example &middot; <Link to="/holding-page">Read the guide</Link></div>
+        <div className="container">Example page — fictional business, built by Zentry &middot; <Link to="/holding-page">Read the guide</Link></div>
       </div>
       <section className="block" style={{ paddingTop: 34 }}>
         <div className="narrow">
           <div className="service-card" style={{ padding: 0, overflow: "hidden" }}>
             <div style={{ background: "#08131f", color: "#fff", padding: "44px 30px" }}>
-              <p className="overline">A real launch page</p>
+              <p className="overline">Example launch page</p>
               <h1 style={{ fontSize: "clamp(29px,5vw,44px)", margin: "0 0 10px" }}>Riverside Dental Practice</h1>
               <p style={{ color: "#c1d0dc" }}>Family dentistry in Riverside — open and taking appointments</p>
               <a className="btn" href="tel:+441234567890" style={{ marginTop: 12 }}>Call 01234 567 890</a>
@@ -347,7 +347,7 @@ export function Demo() {
                 <div className="field"><label htmlFor="demo-contact">Phone or email</label><input id="demo-contact" placeholder="Phone or email" /></div>
                 <div className="field"><label htmlFor="demo-need">What do you need?</label><textarea id="demo-need" placeholder="e.g. a check-up for my daughter" /></div>
                 <button className="btn" disabled>Send enquiry</button>
-                <p className="muted" style={{ fontSize: 13, marginTop: 12 }}>Demo form — nothing is submitted. A real generated page sends enquiries straight to the Zentry admin inbox with the page slug attached.</p>
+                <p className="muted" style={{ fontSize: 13, marginTop: 12 }}>Demo form — nothing is sent. On a real page, enquiries go straight to Zentry's inbox with the page marked.</p>
               </div>
               <h2 style={{ marginTop: 34 }}>Our new website is on its way</h2>
               <p className="muted">Until it launches, call or send an enquiry above and we'll get straight back to you. Existing patients: please call the same number for urgent care.</p>
@@ -391,9 +391,9 @@ export function Contact() {
     <section className="block">
       <div className="narrow">
         <p className="eyebrow">Get in touch</p>
-        <h1 className="sec">Tell us what you are building.</h1>
+        <h1 className="sec">Tell us what you need.</h1>
         <p className="intro">A web app, an Android or desktop tool, a security review, or one clear page this week. We reply within two hours during Nairobi business hours.</p>
-        {done && <SuccessNote message="Thank you — your enquiry is in. We will be in touch shortly." />}
+        {done && <SuccessNote message="Thanks. We have your enquiry and will reply shortly." />}
         <ErrorNote message={error} />
         <form className="form-card" onSubmit={submit}>
           <div className="grid-2">

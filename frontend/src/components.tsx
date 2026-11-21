@@ -70,7 +70,7 @@ export function PublicLayout() {
           <div className="footer-grid">
             <div>
               <Logo />
-              <p>Software engineering and cybersecurity. We build products and secure them — from Nairobi.</p>
+              <p>We build software and secure it. Based in Nairobi.</p>
               <span className="tagline">Guard the entry. Move at speed.</span>
             </div>
             <div>
