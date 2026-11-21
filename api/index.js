@@ -10,11 +10,21 @@ let handlerPromise;
 
 async function buildHandler() {
   const databaseUrl = process.env.DATABASE_URL;
+  console.log("[zentry] env check", {
+    hasDatabaseUrl: Boolean(databaseUrl),
+    hasSessionSecret: Boolean(process.env.SESSION_SECRET),
+    hasAdminEmail: Boolean(process.env.ADMIN_EMAIL),
+    hasAdminPasswordHash: Boolean(process.env.ADMIN_PASSWORD_HASH),
+    cookieSecure: process.env.COOKIE_SECURE === "true",
+    trustProxy: process.env.TRUST_PROXY,
+  });
   if (!databaseUrl) {
     throw new Error("DATABASE_URL must be configured on Vercel");
   }
+  console.log("[zentry] opening database");
   const db = openPostgresDatabase(databaseUrl);
   await db.ready;
+  console.log("[zentry] database ready");
 
   const app = createApp(db, {
     sessionSecret: process.env.SESSION_SECRET || "",
