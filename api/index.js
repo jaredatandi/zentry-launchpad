@@ -60,6 +60,16 @@ module.exports = async function handler(req, res) {
     probe.get("/api/probe", (_req, res) => res.json({ ok: true, probe: true }));
     return serverless(probe)(req, res);
   }
+  if (req.url && req.url.split("?")[0] === "/api/direct") {
+    const express = require("express");
+    const probe = express();
+    probe.get("/api/direct", (_req, res) => res.json({ ok: true, direct: true }));
+    return new Promise((resolve) => {
+      res.on("finish", resolve);
+      res.on("close", resolve);
+      probe(req, res);
+    });
+  }
   if (!handlerPromise) handlerPromise = buildHandler();
   try {
     const handler = await handlerPromise;
