@@ -26,13 +26,15 @@ async function buildHandler() {
   await db.ready;
   console.log("[zentry] database ready");
 
+  console.log("[zentry] building app");
   const app = createApp(db, {
     sessionSecret: process.env.SESSION_SECRET || "",
     adminEmail: (process.env.ADMIN_EMAIL || "").toLowerCase(),
     adminPasswordHash: process.env.ADMIN_PASSWORD_HASH || "",
     cookieSecure: process.env.COOKIE_SECURE === "true",
   });
-  return serverless(app, {
+  console.log("[zentry] app built, wrapping serverless");
+  const wrapped = serverless(app, {
     request(request) {
       // Vercel terminates TLS; Express must trust one proxy hop for clientIp().
       request.headers["x-forwarded-for"] =
@@ -40,13 +42,19 @@ async function buildHandler() {
       return request;
     },
   });
+  console.log("[zentry] serverless wrapper ready");
+  return wrapped;
 }
 
 module.exports = async function handler(req, res) {
+  console.log("[zentry] request", req.method, req.url);
   if (!handlerPromise) handlerPromise = buildHandler();
   try {
     const handler = await handlerPromise;
-    return await handler(req, res);
+    console.log("[zentry] invoking app");
+    const result = await handler(req, res);
+    console.log("[zentry] app returned");
+    return result;
   } catch (error) {
     console.error("[zentry] deployment error", error);
     if (!res.headersSent) {
