@@ -17,7 +17,6 @@ trial, card, subscription, ad platform or billed API key is used by this project
 | zod | MIT | Input validation | Yes |
 | dotenv | BSD-2-Clause | `.env` loading | Yes |
 | pg | MIT | Remote Postgres client (Neon) in production | Yes |
-| serverless-http | MIT | Runs the Express app on Vercel Functions | Yes |
 | Vitest | MIT | Tests | Yes |
 
 Deliberately **not** used: paid email APIs (the app uses mailto links and an

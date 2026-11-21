@@ -7,9 +7,6 @@
     "backend",
     "frontend"
   ],
-  "dependencies": {
-    "serverless-http": "^3.2.0"
-  },
   "scripts": {
     "setup:admin": "npm run setup:admin -w backend",
     "db:init": "npm run db:init -w backend",
