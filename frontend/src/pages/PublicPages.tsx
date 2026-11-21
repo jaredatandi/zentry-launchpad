@@ -178,10 +178,10 @@ export function Home() {
         <div className="container">
           <div className="section-head">
             <p className="eyebrow">Ways to work together</p>
-            <h2>Two ways to start.</h2>
-            <p>A fixed-price page if you need one now, or a quoted engagement for the larger build.</p>
+            <h2>Three ways to start.</h2>
+            <p>A fixed-price page if you need one now, a quoted engagement for the larger build, or a same-day Career Express package for your applications.</p>
           </div>
-          <div className="grid-2">
+          <div className="grid-3">
             <div className="offer featured">
               <span className="badge-soft">Fixed price · 48 hours</span>
               <div className="price">US$79 <small>/ KES 2,500</small></div>
@@ -208,6 +208,21 @@ export function Home() {
               </ul>
               <Link className="btn outline" to="/contact">Tell us about the project &rarr;</Link>
             </div>
+            <div className="offer">
+              <span className="badge-soft">Same day</span>
+              <div className="price">US$39 <small>/ KES 1,000</small></div>
+              <h3>Career Express</h3>
+              <p className="muted" style={{ fontSize: 14 }}>ATS-friendly CV rewrite, tailored cover letter and LinkedIn headline/About, from details the client already publishes.</p>
+              <ul>
+                <li>ATS CV rewritten for the keywords recruiters scan</li>
+                <li>Tailored cover letter</li>
+                <li>LinkedIn headline and About</li>
+                <li>Delivered the same day</li>
+                <li>Kenya: M-Pesa Till 6200945 using your own phone number as the reference</li>
+                <li>International: bank transfer, details sent on confirmation</li>
+              </ul>
+              <Link className="btn" to="/contact">Order Career Express &rarr;</Link>
+            </div>
           </div>
         </div>
       </section>
@@ -220,6 +235,7 @@ export function Home() {
           <details className="faq"><summary>How does payment work?</summary><p>For Kenya, pay by M-Pesa Till 6200945 using your phone number as the reference. For international clients, bank transfer; details are sent on confirmation. No card or subscription.</p></details>
           <details className="faq"><summary>Do you do security testing?</summary><p>Only inside written, owner-approved scope naming the target and dates. We start with secure design reviews, code review and threat modelling. This site contains no scanning or testing tools.</p></details>
           <details className="faq"><summary>What is the launch page turnaround?</summary><p>48 hours from confirmed details and payment, with two rounds of changes included. Send the business name, phone, address and a short description of what you do.</p></details>
+          <details className="faq"><summary>What is Career Express?</summary><p>Career Express is a same-day ATS-friendly CV rewrite, tailored cover letter and LinkedIn headline and About, built from details you already publish — US$39 / KES 1,000. Kenya: M-Pesa Till 6200945 using your own phone number as the reference. International: bank transfer, details sent on confirmation. No card or subscription.</p></details>
         </div>
       </section>
 
